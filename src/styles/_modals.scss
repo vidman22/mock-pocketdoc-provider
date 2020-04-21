@@ -1,0 +1,135 @@
+.close-link {
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	font-size: 28px;
+	color: $BORDER_BUTTON_GREY;
+}
+
+.modal-container {
+	padding: 40px 40px;
+
+	.page-title {
+		margin-bottom: 15px;
+		display: flex;
+		align-items: center;
+	}
+
+	.descriptions {
+		margin-top: 20px;
+		margin-bottom: 20px;
+		width: 100%;
+		h4 {
+			color: $TEXT_GREY_SELECT;
+			font-family: "Brandon-Med";
+		}
+		span, p {
+			font-size: 16px;
+		}
+		> div {
+			width: 100%;
+		}
+	}
+}
+
+.modal-container.email-sent-modal {
+	padding: 30px 20px;
+	.page-title {
+		margin-top: 0px;
+	}
+}
+
+.patient-details-modal {
+	label {
+		color: $TEXT_GREY_SELECT;
+		font-family: "Brandon-Med";
+		font-size: 16px;
+	}
+	.controls-bar {
+		justify-content: space-between;
+		> div {
+			text-align: center;
+
+			p {
+				font-size: 16px;
+			}
+		}
+	}
+
+	.patient-visits-table {
+		font-size: 14px;
+		thead td {
+			font-family: "Brandon-Med";
+		}
+	}
+}
+
+.encounter-summary-modal {
+	.controls {
+		margin-left: 15px;
+		// position: absolute;
+		// top: 30px;
+		// left: 30px;
+	}
+
+	.descriptions {
+		> div {
+			margin-bottom: 15px;
+		}
+	}
+
+	.descriptions:first-child {
+		margin-right: 20px;
+	}
+	.descriptions:last-child {
+		margin-left: 20px;
+	}
+	.visit-prescriptions-table {
+		text-align: center;
+		thead {
+			border-bottom: 1px solid #C0C0C0;
+			td {
+				font-family: "Brandon-Med";
+				color: $TEXT_GREY_SELECT;
+			}
+		}
+		tr td:not(:last-child) {
+			border-right: 1px solid #C0C0C0;
+		}
+		tbody td {
+			border: none;
+		}
+	}
+
+	.visit-id {
+		font-size: 11px;
+		position: absolute;
+	}
+}
+
+
+.video-modal {
+	.modal-content {
+		background-color: transparent;
+		box-shadow: none;
+		border: none;
+	}
+
+	iframe {
+		background-color: white;
+	    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+	}
+}
+
+.video-modal {
+	display: flex !important;
+	align-items: center;
+
+    @media (max-width: 768px) {
+		.modal-dialog {
+		    width: 100%;
+		}
+    }
+}
+
+

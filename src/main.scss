@@ -1,0 +1,22 @@
+@import 'styles/variables';
+@import 'styles/default';
+@import 'styles/anti-bootstrap';
+@import 'styles/theme';
+@import 'styles/header';
+@import 'styles/containers';
+@import 'styles/modals';
+@import 'styles/rx';
+@import 'styles/mobile';
+
+// $font-stack:	Helvetica, sans-serif;
+$font-stack: 'Lato', sans-serif;
+// $font-stack: Montserrat, sans-serif;
+$primary-color: black;
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: $font-stack;
+}
