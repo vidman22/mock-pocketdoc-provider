@@ -12,7 +12,7 @@ import { AUTH_TOKEN } from './constants';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)));
-const token = localStorage.getItem(AUTH_TOKEN);
+// const token = localStorage.getItem(AUTH_TOKEN);
 
 const app = (
   <Provider store={store} >

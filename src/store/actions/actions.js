@@ -1,4 +1,4 @@
-import { AUTH_TOKEN } from '../constants'; 
+import { AUTH_TOKEN } from '../../constants'; 
 import * as actionTypes from './actionTypes';
 
 const checkAuthTimeout = (expirationTime) => {
@@ -9,35 +9,26 @@ const checkAuthTimeout = (expirationTime) => {
     };
 };
 
-export const authSuccess = ( id, email, username, picture, uuid, token, expiresIn) => {
-    console.log('picture', picture);
+export const authSuccess = ( id, email, token, expiresIn) => {
 	const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
     localStorage.setItem(AUTH_TOKEN, token);
     localStorage.setItem('id', id);
     localStorage.setItem('expirationDate', expirationDate);
-    localStorage.setItem('uuid', uuid);
     localStorage.setItem('email', email);
-    localStorage.setItem('username', username);
-    localStorage.setItem('picture', picture);
 
     return {
         type: actionTypes.AUTH_SUCCESS,
         id,
         email,
-        username,
-        picture,
-        uuid
     };
 };
 
-export const autoLogin = (id, email, username, picture, uuid, expiresIn ) => {
+export const autoLogin = (id, email ) => {
+    console.log("auto login fired");
 	return {
         type: actionTypes.AUTH_SUCCESS,
         id,
-       	email,
-       	username,
-       	picture,
-        uuid   
+       	email,  
     }
 }
 
@@ -53,11 +44,8 @@ export const authCheckState = () => {
 				} else {
                     //const id = localStorage.getItem('id');
 					const id = parseInt(localStorage.getItem('id'), 10);
-					const picture = localStorage.getItem('picture');
 					const email = localStorage.getItem('email');
-                    const username = localStorage.getItem('username');
-                    const uuid = localStorage.getItem('uuid');
-					dispatch(autoLogin(id, email, username, picture, uuid ));
+					dispatch(autoLogin(id, email ));
 					dispatch(checkAuthTimeout((expirationDate.getTime() - new Date().getTime()) / 1000 ));
 				}
 			}
@@ -68,10 +56,8 @@ export const logout = () => {
     localStorage.removeItem(AUTH_TOKEN);
     localStorage.removeItem('id');
     localStorage.removeItem('expirationDate');
-    localStorage.removeItem('uuid');
     localStorage.removeItem('email');
-    localStorage.removeItem('username');
-    localStorage.removeItem('picture');
+
     
     return {
     	type: actionTypes.LOGOUT

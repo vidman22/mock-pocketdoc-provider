@@ -2,11 +2,8 @@ import * as actionTypes from '../actions/actionTypes';
 
 
 const initialState = {
-	user: null,
-	lessonSet: [],
-	insertTexts: {},
-	omissions: {},
-	omissionsWithOptions: {},
+	isAuthenticated: true,
+	user: {},
 }
 
 const reducer = (state = initialState , action) => {
@@ -16,9 +13,6 @@ const reducer = (state = initialState , action) => {
 			user: {
 				id: action.id,
 				email: action.email,
-				username: action.username,
-				picture: action.picture,
-				userID: action.uuid
 			}
 		}
 	}
